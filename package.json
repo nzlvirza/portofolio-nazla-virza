@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-virza-vue",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Vue 3 + Vite + Tailwind CSS portfolio for Nazla Virza Rahman",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/motion": "^2.2.6",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.5"
+  }
+}
