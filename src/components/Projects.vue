@@ -41,7 +41,7 @@ const placeholderCode = (title) =>
                         <div v-else class="project-ph absolute inset-0 bg-night-900 transition-transform duration-500 group-hover/card:scale-105">
                             <span class="absolute inset-0 bg-gradient-to-br from-accent-600/15 via-transparent to-transparent" aria-hidden="true"></span>
                             <span class="absolute left-6 top-6 text-accent-400/70" aria-hidden="true">
-                                <AppIcon name="folder" size="6" />
+                                <AppIcon name="folder" size="1" />
                             </span>
                             <span
                                 class="pointer-events-none absolute inset-0 grid select-none place-items-center font-mono text-7xl font-bold text-white/[0.05]"
@@ -49,9 +49,9 @@ const placeholderCode = (title) =>
                             >
                                 {{ project.title.charAt(0).toUpperCase() }}
                             </span>
-                            <figcaption class="absolute bottom-5 right-6 font-mono text-xs tracking-widest text-accent-400/50">
+                            <span class="absolute bottom-5 right-6 font-mono text-xs tracking-widest text-accent-400/50">
                                 {{ placeholderCode(project.title) }}
-                            </figcaption>
+                            </span>
                         </div>
                         <span
                             class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-400/40 to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"

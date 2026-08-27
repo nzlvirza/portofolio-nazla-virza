@@ -6,6 +6,20 @@ import AppIcon from './AppIcon.vue';
 const socials = portfolio.socials;
 const imgFailed = ref(false);
 
+const scrollToProjects = (event) => {
+    event.preventDefault();
+    const target = document.getElementById('projects');
+    if (target) {
+        const headerOffset = 70;
+        const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+        });
+        history.pushState(null, '', '#projects');
+    }
+};
+
 const reveal = (delay = 0) => ({
     initial: { opacity: 0, y: 28 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] } },
@@ -41,7 +55,7 @@ const reveal = (delay = 0) => ({
                     </p>
 
                     <div v-motion="reveal(300)" class="mt-10 flex flex-wrap items-center gap-4">
-                        <a href="#projects" class="btn btn-primary group">
+                        <a href="#projects" class="btn btn-primary group" @click="scrollToProjects">
                             View My Projects
                             <AppIcon name="arrow-right" class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
@@ -74,27 +88,27 @@ const reveal = (delay = 0) => ({
                     class="relative hidden justify-self-end lg:block"
                     aria-hidden="true"
                 >
-                    <div class="absolute -inset-16 rounded-full bg-accent-500/10 blur-3xl"></div>
-                    <div class="relative size-80 xl:size-[22rem]">
-                        <span class="absolute inset-0 rounded-full border border-white/[0.06]"></span>
-                        <span class="absolute inset-10 rounded-full border border-accent-500/15"></span>
-                        <span class="animate-spin-slower absolute inset-20 rounded-full border border-dashed border-white/10"></span>
-                        <div class="animate-float absolute inset-0 m-auto grid size-44 place-items-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] shadow-glow backdrop-blur-md">
+                    <div class="absolute -inset-10 rounded-full bg-accent-500/15 blur-3xl"></div>
+                    <div class="relative size-96 xl:size-[28rem]">
+                        <span class="absolute inset-0 rounded-full border border-white/[0.05]"></span>
+                        <span class="absolute inset-8 xl:inset-10 rounded-full border border-accent-500/20"></span>
+                        <span class="animate-spin-slower absolute inset-14 xl:inset-16 rounded-full border border-dashed border-white/15"></span>
+                        <div class="animate-float absolute inset-0 m-auto grid size-64 xl:size-72 place-items-center overflow-hidden rounded-full border border-accent-400/30 bg-white/[0.04] shadow-glow backdrop-blur-md">
                             <img
                                 v-if="!imgFailed"
                                 :src="`/images/profile.jpg`"
                                 alt="Nazla Virza Rahman profile photo"
-                                class="size-full object-cover"
+                                class="size-full object-cover object-center"
                                 @error="imgFailed = true"
                             />
-                            <span v-else class="text-5xl font-bold text-accent-300">{{ portfolio.initial }}</span>
+                            <span v-else class="text-6xl font-bold text-accent-300">{{ portfolio.initial }}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <a
+        <!-- <a
             href="#about"
             aria-label="Scroll to about section"
             class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 text-slate-600 transition-colors duration-300 hover:text-accent-300 md:block"
@@ -102,6 +116,6 @@ const reveal = (delay = 0) => ({
             <span class="animate-bounce-soft block">
                 <AppIcon name="chevron-down" size="6" />
             </span>
-        </a>
+        </a> -->
     </section>
 </template>
