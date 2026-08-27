@@ -8,7 +8,7 @@ export const portfolio = {
     bio: 'Information Systems student with experience in Android application development, UI/UX design, quality assurance, software testing, and database management.',
 
     email: 'virzarahman@gmail.com',
-    location: 'Tangerang Selatan, Indonesia',
+    location: 'South Tangerang, Indonesia',
     availability: 'Open to Internship',
     cvUrl: '/cv/Nazla-Virza-Rahman-CV.pdf',
 
