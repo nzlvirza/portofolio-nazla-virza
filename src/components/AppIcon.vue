@@ -16,22 +16,26 @@ const attrs = useAttrs();
 
 const sizeMap = {
     '2.5': 'size-2.5',
+    '3': 'size-3',
     '3.5': 'size-3.5',
     '4': 'size-4',
     '5': 'size-5',
     '6': 'size-6',
+    '8': 'size-8',
+    '10': 'size-10',
+    '12': 'size-12',
     '[18px]': 'size-[18px]',
 };
 
 const iconClass = computed(() => {
     const inherited = String(attrs.class ?? '');
     const explicit = inherited.split(/\s+/).find((token) => /^size-/.test(token));
-    return explicit ?? sizeMap[String(props.size)] ?? 'size-5';
+    return explicit ?? sizeMap[String(props.size)] ?? (props.size ? `size-${props.size}` : 'size-5');
 });
 </script>
 
 <template>
-    <span :class="iconClass" aria-hidden="true">
+    <span :class="['inline-flex shrink-0 items-center justify-center', iconClass]" aria-hidden="true">
         <svg
             v-if="name === 'github'"
             viewBox="0 0 24 24"

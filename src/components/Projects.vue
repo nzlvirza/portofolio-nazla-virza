@@ -1,9 +1,11 @@
 <script setup>
+import { ref } from 'vue';
 import { portfolio } from '../data/portfolio';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
 const projects = portfolio.projects;
+const failedLogos = ref({});
 
 const projectReveal = (index) => ({
     initial: { opacity: 0, y: 28 },
@@ -30,31 +32,64 @@ const placeholderCode = (title) =>
                     v-motion="projectReveal(index)"
                     class="card card-hover group/card flex flex-col overflow-hidden"
                 >
-                    <figure class="relative aspect-[16/10] overflow-hidden border-b border-white/[0.06]">
+                    <figure class="relative aspect-[16/10] overflow-hidden border-b border-white/[0.06] bg-night-900/90">
+                        <!-- Full Banner / Screenshot View (if project.image is set and no specific logo) -->
                         <img
-                            v-if="project.image"
+                            v-if="project.image && !project.logo"
                             :src="project.image"
                             :alt="`Preview of the ${project.title} project`"
                             loading="lazy"
                             class="size-full object-cover transition-transform duration-500 group-hover/card:scale-105"
                         />
-                        <div v-else class="project-ph absolute inset-0 bg-night-900 transition-transform duration-500 group-hover/card:scale-105">
-                            <span class="absolute inset-0 bg-gradient-to-br from-accent-600/15 via-transparent to-transparent" aria-hidden="true"></span>
-                            <span class="absolute left-6 top-6 text-accent-400/70" aria-hidden="true">
-                                <AppIcon name="folder" size="1" />
-                            </span>
-                            <span
-                                class="pointer-events-none absolute inset-0 grid select-none place-items-center font-mono text-7xl font-bold text-white/[0.05]"
-                                aria-hidden="true"
-                            >
-                                {{ project.title.charAt(0).toUpperCase() }}
-                            </span>
-                            <span class="absolute bottom-5 right-6 font-mono text-xs tracking-widest text-accent-400/50">
-                                {{ placeholderCode(project.title) }}
-                            </span>
+
+                        <!-- App Logo Showcase / Wadah Logo Aplikasi Container -->
+                        <div
+                            v-else
+                            class="project-ph relative size-full flex flex-col items-center justify-center p-6 transition-transform duration-500 group-hover/card:scale-[1.02]"
+                        >
+                            <!-- Ambient Background Lighting -->
+                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-accent-600/10" aria-hidden="true"></div>
+                            <div class="pointer-events-none absolute size-44 rounded-full bg-accent-500/15 blur-2xl opacity-70 transition-opacity duration-500 group-hover/card:opacity-100" aria-hidden="true"></div>
+
+                            <!-- App Logo Slot / Wadah Logo -->
+                            <div class="relative z-10 flex flex-col items-center gap-3">
+                                <div
+                                    class="group/logo relative grid size-24 place-items-center overflow-hidden rounded-2xl border border-white/15 bg-night-950/80 shadow-2xl shadow-black/50 backdrop-blur-md transition-all duration-300 group-hover/card:border-accent-400/60 group-hover/card:shadow-glow sm:size-28 sm:rounded-[22px]"
+                                >
+                                    <!-- If App Logo is uploaded -->
+                                    <img
+                                        v-if="project.logo && !failedLogos[project.title]"
+                                        :src="project.logo"
+                                        :alt="`${project.title} logo`"
+                                        class="size-full object-cover transition-transform duration-300 group-hover/card:scale-105"
+                                        @error="failedLogos[project.title] = true"
+                                    />
+
+                                    <!-- Placeholder state if logo is not yet set or failed to load -->
+                                    <div
+                                        v-else
+                                        class="flex size-full flex-col items-center justify-center gap-1.5 p-3 text-center transition-colors duration-300"
+                                    >
+                                        <span class="rounded-xl bg-accent-500/10 p-2.5 text-accent-300 transition-all duration-300 group-hover/card:bg-accent-500/20 group-hover/card:text-white group-hover/card:scale-110">
+                                            <AppIcon name="smartphone" size="6" />
+                                        </span>
+                                    </div>
+
+                                    <!-- Corner Shine Effect & Border Overlay -->
+                                    <span class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/15 ring-1 ring-inset ring-white/10" aria-hidden="true"></span>
+                                </div>
+
+                                <!-- App Identifier / Code Tag -->
+                                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-night-950/80 px-3 py-1 font-mono text-[11px] text-accent-300/80 backdrop-blur-sm transition-colors duration-300 group-hover/card:border-accent-400/30 group-hover/card:text-accent-200">
+                                    <span class="size-1.5 rounded-full bg-accent-400"></span>
+                                    {{ project.logo && !failedLogos[project.title] ? 'App Logo' : placeholderCode(project.title) }}
+                                </span>
+                            </div>
                         </div>
+
+                        <!-- Hover Bottom Glow Accent Line -->
                         <span
-                            class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-400/40 to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
+                            class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-400/50 to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
                             aria-hidden="true"
                         ></span>
                     </figure>

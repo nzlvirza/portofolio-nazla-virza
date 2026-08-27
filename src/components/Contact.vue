@@ -61,11 +61,16 @@ const onSubmit = (event) => {
                             <button
                                 type="button"
                                 :aria-label="copied ? 'Copied!' : 'Copy email address'"
-                                :class="['copy-btn icon-btn size-9 cursor-pointer', { copied }]"
+                                :title="copied ? 'Copied to clipboard!' : 'Copy email'"
+                                :class="[
+                                    'icon-btn size-9 cursor-pointer transition-all duration-300',
+                                    copied
+                                        ? 'border-emerald-400/50 bg-emerald-500/10 text-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.35)]'
+                                        : 'text-slate-400 hover:border-accent-400/50 hover:text-accent-300'
+                                ]"
                                 @click="copyEmail"
                             >
-                                <AppIcon name="copy" class="icon-copy size-4" />
-                                <AppIcon name="check" class="icon-check size-4" />
+                                <AppIcon name="copy" size="4" />
                             </button>
                         </div>
                     </div>

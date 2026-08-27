@@ -266,18 +266,6 @@
     .animate-bounce-soft {
         animation: bounce-soft 2s ease-in-out infinite;
     }
-
-    .copy-btn .icon-check {
-        @apply hidden;
-    }
-
-    .copy-btn.copied .icon-copy {
-        @apply hidden;
-    }
-
-    .copy-btn.copied .icon-check {
-        @apply block text-emerald-400;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {

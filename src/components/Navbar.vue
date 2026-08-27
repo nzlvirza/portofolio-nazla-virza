@@ -10,6 +10,7 @@ const links = [
     { label: 'Projects', href: '#projects' },
     { label: 'Experience', href: '#experience' },
     { label: 'Education', href: '#education' },
+    { label: 'Certifications', href: '#certifications' },
     { label: 'Contact', href: '#contact' },
 ];
 
@@ -135,7 +136,7 @@ onBeforeUnmount(() => {
                 </a>
 
                 <!-- Desktop Navigation Links -->
-                <nav class="hidden items-center gap-7 lg:flex xl:gap-8" aria-label="Main navigation">
+                <nav class="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Main navigation">
                     <a
                         v-for="link in links"
                         :key="link.label"
