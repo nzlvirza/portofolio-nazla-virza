@@ -34,27 +34,28 @@ const reveal = (delay = 0) => ({
         ></div>
 
         <div class="container-site relative">
-            <div class="grid items-center gap-16 lg:grid-cols-[1.25fr_0.75fr]">
-                <div>
-                    <p v-motion="reveal(0)" class="eyebrow mb-6 flex items-center gap-3">
+            <div class="grid items-center gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1">
+                    <p v-motion="reveal(0)" class="eyebrow mb-4 flex items-center gap-3 sm:mb-6">
                         <span class="h-px w-10 bg-accent-500/70" aria-hidden="true"></span>
                         {{ portfolio.greeting }}
                     </p>
 
                     <h1 v-motion="reveal(100)" class="text-balance">
-                        <span class="block text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+                        <span class="block text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
                             {{ portfolio.name }}<span class="text-accent-400">.</span>
                         </span>
-                        <span class="mt-4 block text-2xl font-semibold tracking-tight text-accent-300 sm:text-3xl lg:text-4xl">
+                        <span class="mt-3 block text-xl font-semibold tracking-tight text-accent-300 sm:mt-4 sm:text-3xl lg:text-4xl">
                             {{ portfolio.role }}
                         </span>
                     </h1>
 
-                    <p v-motion="reveal(200)" class="mt-7 max-w-xl text-base leading-relaxed text-slate-400 sm:text-lg">
+                    <p v-motion="reveal(200)" class="mt-5 max-w-xl text-base leading-relaxed text-slate-400 sm:mt-7 sm:text-lg">
                         {{ portfolio.bio }}
                     </p>
 
-                    <div v-motion="reveal(300)" class="mt-10 flex flex-wrap items-center gap-4">
+                    <div v-motion="reveal(300)" class="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
                         <a href="#projects" class="btn btn-primary group" @click="scrollToProjects">
                             View My Projects
                             <AppIcon name="arrow-right" class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -65,7 +66,7 @@ const reveal = (delay = 0) => ({
                         </a>
                     </div>
 
-                    <div v-motion="reveal(400)" class="mt-12 flex items-center gap-3">
+                    <div v-motion="reveal(400)" class="mt-10 flex items-center gap-3 sm:mt-12">
                         <a
                             v-for="social in socials"
                             :key="social.label"
@@ -81,27 +82,29 @@ const reveal = (delay = 0) => ({
                     </div>
                 </div>
 
+                <!-- Profile Photo / Avatar Showcase -->
                 <div
                     v-motion
                     :initial="{ opacity: 0, scale: 0.9 }"
                     :visible="{ opacity: 1, scale: 1, transition: { duration: 0.8, delay: 200 } }"
-                    class="relative hidden justify-self-end lg:block"
-                    aria-hidden="true"
+                    class="order-1 flex justify-center lg:order-2 lg:justify-self-end"
                 >
-                    <div class="absolute -inset-10 rounded-full bg-accent-500/15 blur-3xl"></div>
-                    <div class="relative size-96 xl:size-[28rem]">
-                        <span class="absolute inset-0 rounded-full border border-white/[0.05]"></span>
-                        <span class="absolute inset-8 xl:inset-10 rounded-full border border-accent-500/20"></span>
-                        <span class="animate-spin-slower absolute inset-14 xl:inset-16 rounded-full border border-dashed border-white/15"></span>
-                        <div class="animate-float absolute inset-0 m-auto grid size-80 xl:size-96 place-items-center overflow-hidden rounded-full border border-accent-400/30 bg-white/[0.04] shadow-glow backdrop-blur-md">
-                            <img
-                                v-if="!imgFailed"
-                                :src="`/images/profile.jpg`"
-                                alt="Nazla Virza Rahman profile photo"
-                                class="size-full object-cover object-center"
-                                @error="imgFailed = true"
-                            />
-                            <span v-else class="text-6xl font-bold text-accent-300">{{ portfolio.initial }}</span>
+                    <div class="relative flex items-center justify-center">
+                        <div class="absolute -inset-6 rounded-full bg-accent-500/15 blur-2xl sm:-inset-10 sm:blur-3xl"></div>
+                        <div class="relative size-56 sm:size-72 md:size-80 lg:size-96 xl:size-[28rem]">
+                            <span class="absolute inset-0 rounded-full border border-white/[0.05]"></span>
+                            <span class="absolute inset-4 rounded-full border border-accent-500/20 sm:inset-6 md:inset-8 xl:inset-10"></span>
+                            <span class="animate-spin-slower absolute inset-8 rounded-full border border-dashed border-white/15 sm:inset-11 md:inset-14 xl:inset-16"></span>
+                            <div class="animate-float absolute inset-0 m-auto grid size-44 place-items-center overflow-hidden rounded-full border border-accent-400/30 bg-white/[0.04] shadow-glow backdrop-blur-md sm:size-56 md:size-68 lg:size-80 xl:size-96">
+                                <img
+                                    v-if="!imgFailed"
+                                    :src="`/images/profile.jpg`"
+                                    alt="Nazla Virza Rahman profile photo"
+                                    class="size-full object-cover object-center"
+                                    @error="imgFailed = true"
+                                />
+                                <span v-else class="text-4xl font-bold text-accent-300 sm:text-5xl lg:text-6xl">{{ portfolio.initial }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
