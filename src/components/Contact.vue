@@ -5,8 +5,17 @@ import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
 const copied = ref(false);
-const formSubmitted = ref(false);
 let copyTimer = null;
+
+const formData = ref({
+    name: '',
+    email: '',
+    message: ''
+});
+
+const isSubmitting = ref(false);
+const submitSuccess = ref(false);
+const errorMessage = ref('');
 
 const copyEmail = async () => {
     try {
@@ -30,10 +39,43 @@ const copyEmail = async () => {
     }, 2000);
 };
 
-const onSubmit = (event) => {
-    event.preventDefault();
-    formSubmitted.value = true;
-    event.target.reset();
+const onSubmit = async () => {
+    if (isSubmitting.value) return;
+
+    isSubmitting.value = true;
+    submitSuccess.value = false;
+    errorMessage.value = '';
+
+    try {
+        const response = await fetch(`https://formsubmit.co/ajax/${portfolio.email}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: formData.value.name,
+                email: formData.value.email,
+                message: formData.value.message,
+                _subject: `New Portfolio Message from ${formData.value.name}`,
+                _template: 'table'
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && (data.success === 'true' || data.success === true)) {
+            submitSuccess.value = true;
+            formData.value = { name: '', email: '', message: '' };
+        } else {
+            throw new Error(data.message || 'Failed to send message. Please try again later.');
+        }
+    } catch (err) {
+        console.error('Contact Form Error:', err);
+        errorMessage.value = err.message || 'Network error occurred. Please try sending again or reach out via email directly.';
+    } finally {
+        isSubmitting.value = false;
+    }
 };
 </script>
 
@@ -103,10 +145,8 @@ const onSubmit = (event) => {
                     v-motion
                     :initial="{ opacity: 0, x: 28 }"
                     :visible="{ opacity: 1, x: 0 }"
-                    action="#"
-                    method="POST"
                     class="card p-7 sm:p-9"
-                    @submit="onSubmit"
+                    @submit.prevent="onSubmit"
                 >
                     <div class="space-y-6">
                         <div>
@@ -115,12 +155,14 @@ const onSubmit = (event) => {
                             </label>
                             <input
                                 id="contact-name"
+                                v-model="formData.name"
                                 name="name"
                                 type="text"
                                 required
                                 autocomplete="name"
                                 placeholder="Your name"
-                                class="input-field"
+                                :disabled="isSubmitting"
+                                class="input-field disabled:opacity-50"
                             />
                         </div>
 
@@ -130,12 +172,14 @@ const onSubmit = (event) => {
                             </label>
                             <input
                                 id="contact-email"
+                                v-model="formData.email"
                                 name="email"
                                 type="email"
                                 required
                                 autocomplete="email"
                                 placeholder="you@example.com"
-                                class="input-field"
+                                :disabled="isSubmitting"
+                                class="input-field disabled:opacity-50"
                             />
                         </div>
 
@@ -145,30 +189,53 @@ const onSubmit = (event) => {
                             </label>
                             <textarea
                                 id="contact-message"
+                                v-model="formData.message"
                                 name="message"
                                 rows="5"
                                 required
                                 placeholder="Tell me about your project..."
-                                class="input-field resize-none"
+                                :disabled="isSubmitting"
+                                class="input-field resize-none disabled:opacity-50"
                             ></textarea>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary group mt-8 w-full sm:w-auto">
-                        Send Message
-                        <AppIcon name="send" class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <button
+                        type="submit"
+                        :disabled="isSubmitting"
+                        class="btn btn-primary group mt-8 w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-75"
+                    >
+                        <template v-if="isSubmitting">
+                            <svg class="size-4 animate-spin text-white" viewBox="0 0 24 24" fill="none">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Sending...
+                        </template>
+                        <template v-else>
+                            Send Message
+                            <AppIcon name="send" class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </template>
                     </button>
 
-                    <p class="mt-5 text-xs leading-relaxed text-slate-600">
-                        This form is a UI preview — backend delivery is coming soon. Meanwhile, reach me directly via email.
+                    <p class="mt-5 text-xs leading-relaxed text-slate-500">
+                        Messages sent through this form are delivered directly to my email inbox.
                     </p>
 
                     <p
-                        v-show="formSubmitted"
+                        v-if="submitSuccess"
                         role="status"
                         class="mt-5 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.06] px-4 py-3 text-sm text-emerald-300"
                     >
-                        Thanks! Your message draft has been noted locally — please also send it via email.
+                        Thank you! Your message has been sent successfully. I will get back to you soon.
+                    </p>
+
+                    <p
+                        v-if="errorMessage"
+                        role="alert"
+                        class="mt-5 rounded-xl border border-rose-400/25 bg-rose-400/[0.06] px-4 py-3 text-sm text-rose-300"
+                    >
+                        {{ errorMessage }}
                     </p>
                 </form>
             </div>
