@@ -1,9 +1,9 @@
 <script setup>
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
-const skills = portfolio.skills;
+const { portfolioData } = useLanguage();
 
 const cardReveal = (index) => ({
     initial: { opacity: 0, y: 28 },
@@ -18,11 +18,11 @@ const cardReveal = (index) => ({
 <template>
     <section id="skills" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="02" title="Skills & Technologies" />
+            <SectionHeading number="02" :title="portfolioData.sections.skillsTitle" />
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <div
-                    v-for="(group, index) in skills"
+                    v-for="(group, index) in portfolioData.skills"
                     :key="group.category"
                     v-motion="cardReveal(index)"
                     class="card card-hover group p-8"

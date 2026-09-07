@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
-const projects = portfolio.projects;
+const { portfolioData } = useLanguage();
 const failedLogos = ref({});
 
 const projectReveal = (index) => ({
@@ -23,11 +23,11 @@ const placeholderCode = (title) =>
 <template>
     <section id="projects" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="03" title="Featured Projects" />
+            <SectionHeading number="03" :title="portfolioData.sections.projectsTitle" />
 
             <div class="grid gap-7 md:grid-cols-2">
                 <article
-                    v-for="(project, index) in projects"
+                    v-for="(project, index) in portfolioData.projects"
                     :key="project.title"
                     v-motion="projectReveal(index)"
                     class="card card-hover group/card flex flex-col overflow-hidden"

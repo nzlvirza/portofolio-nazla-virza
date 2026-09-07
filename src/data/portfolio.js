@@ -1,15 +1,8 @@
 export const portfolio = {
     name: 'Nazla Virza Rahman',
     initial: 'NVR',
-    role: 'Information Systems Student',
-    greeting: 'Hi, my name is',
-    tagline:
-        'Interested in Android Development, UI/UX, Quality Assurance, and Database',
-    bio: 'Information Systems student with experience in Android application development, UI/UX design, quality assurance, software testing, and database management.',
-
     email: 'virzarahman@gmail.com',
     location: 'South Tangerang, Indonesia',
-    availability: 'Open to Internship',
     cvUrl: '/cv/Nazla-Virza-Rahman-CV.pdf',
 
     meta: {
@@ -45,132 +38,363 @@ export const portfolio = {
         },
     ],
 
-    about: {
-        paragraphs: [
-            'I am an Information Systems student with a strong interest in application development, quality assurance, databases, and UI/UX design. I enjoy building applications through academic and personal projects while continuously improving my technical skills and understanding of software development processes.',
-            'I also have previous internship experience in quality assurance, data entry, and customer support, where I tested web and mobile applications, documented testing results, processed data, and assisted users with application-related issues.',
-            'I am currently looking for an internship opportunity where I can apply my technical skills, gain professional experience, and continue growing in the IT industry.',
+    en: {
+        role: 'Information Systems Student',
+        greeting: 'Hi, my name is',
+        tagline: 'Interested in Android Development, UI/UX, Quality Assurance, and Database',
+        bio: 'Information Systems student with experience in Android application development, UI/UX design, quality assurance, software testing, and database management.',
+        availability: 'Open to Internship',
+        nav: [
+            { label: 'Home', href: '#home' },
+            { label: 'About', href: '#about' },
+            { label: 'Skills', href: '#skills' },
+            { label: 'Projects', href: '#projects' },
+            { label: 'Experience', href: '#experience' },
+            { label: 'Education', href: '#education' },
+            { label: 'Certifications', href: '#certifications' },
+            { label: 'Contact', href: '#contact' },
         ],
-        facts: [
-            { label: 'Status', value: 'Open to Internship' },
-            { label: 'Location', value: 'South Tangerang, Indonesia' },
-            { label: 'Focus', value: 'Information Technology' },
-            { label: 'Education', value: 'Information Systems' },
+        resumeBtn: 'Resume',
+        downloadCvBtn: 'Download CV',
+        downloadCvFull: 'Download CV / Resume',
+        viewProjectsBtn: 'View My Projects',
+        sections: {
+            aboutTitle: 'About Me',
+            aboutSubtitle: 'Get to know me better',
+            skillsTitle: 'Skills & Tech Stack',
+            skillsSubtitle: 'Technologies and tools I work with',
+            projectsTitle: 'Featured Projects',
+            projectsSubtitle: 'Selected work & academic projects',
+            experienceTitle: 'Experience',
+            experienceSubtitle: 'My professional journey & internships',
+            educationTitle: 'Education',
+            educationSubtitle: 'Academic background & studies',
+            certificationsTitle: 'Certifications',
+            certificationsSubtitle: 'Professional credentials & certificates',
+            contactTitle: "Let's Connect",
+            contactSubtitle: 'Feel free to reach out for opportunities or inquiries',
+        },
+        about: {
+            paragraphs: [
+                'I am an Information Systems student with a strong interest in application development, quality assurance, databases, and UI/UX design. I enjoy building applications through academic and personal projects while continuously improving my technical skills and understanding of software development processes.',
+                'I also have previous internship experience in quality assurance, data entry, and customer support, where I tested web and mobile applications, documented testing results, processed data, and assisted users with application-related issues.',
+                'I am currently looking for an internship opportunity where I can apply my technical skills, gain professional experience, and continue growing in the IT industry.',
+            ],
+            facts: [
+                { label: 'Status', value: 'Open to Internship' },
+                { label: 'Location', value: 'South Tangerang, Indonesia' },
+                { label: 'Focus', value: 'Information Technology' },
+                { label: 'Education', value: 'Information Systems' },
+            ],
+        },
+        skills: [
+            {
+                category: 'Android & Application Development',
+                icon: 'smartphone',
+                description: 'Building mobile applications with cross-platform frameworks.',
+                items: ['Flutter', 'Dart', 'Android Development'],
+            },
+            {
+                category: 'Database',
+                icon: 'database',
+                description: 'Managing and designing relational databases.',
+                items: ['Supabase', 'SQLite', 'HiveDB'],
+            },
+            {
+                category: 'UI/UX Design',
+                icon: 'palette',
+                description: 'Designing user-centered interfaces and experiences.',
+                items: ['Google Stitch', 'Figma'],
+            },
+            {
+                category: 'Quality Assurance & Testing',
+                icon: 'shield-check',
+                description: 'Ensuring software quality through systematic testing.',
+                items: ['Quality Assurance', 'Software Testing', 'Test Documentation'],
+            },
+            {
+                category: 'Tools',
+                icon: 'tools',
+                description: 'Productivity and version control tools.',
+                items: ['VSCode', 'Microsoft Excel', 'Git', 'GitHub'],
+            },
         ],
-        stats: [],
+        projects: [
+            {
+                title: 'Student Attendance System – QR Code',
+                description:
+                    'An Android-based student attendance application developed as an academic project to simplify attendance using QR Code technology.',
+                technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
+                features: [
+                    'Developed an Android application for student attendance.',
+                    'Implemented QR Code-based attendance functionality.',
+                    'Designed the application interface with a focus on usability and user experience.',
+                    'Implemented user authentication and role-based access for students and lecturers.',
+                    'Managed attendance and user data using a database.',
+                    'Developed the project as part of an academic Information Systems project.',
+                ],
+                logo: '/images/projects/Absensi_QR_Code Mahasiswa.png',
+                image: null,
+                github: null,
+                demo: null,
+            },
+            {
+                title: 'Employee Payroll & Payslip System',
+                description:
+                    'An Android-based payroll management application designed to manage employee data, payroll processing, salary calculations, and employee payslips.',
+                technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'Android'],
+                features: [
+                    'Role-based authentication for Admin, HR, and Employee with session management.',
+                    'Employee management with CRUD operations and search functionality.',
+                    'Automated payroll calculation including allowances, deductions, and progressive PPh 21.',
+                    'Payslip management with status tracking and edit capabilities.',
+                    'Secure employee self-service for viewing personal payslips.',
+                    'Row Level Security (RLS) enforcement at the database level.',
+                    'Two-step payroll data saving with audit trail for salary components.',
+                ],
+                logo: '/images/projects/Sistem_Penggajian_Karyawan.png',
+                image: null,
+                github: null,
+                demo: null,
+            },
+        ],
+        experience: [
+            {
+                role: 'Quality Assurance & Data Entry Intern',
+                company: 'PT. Komunitas Ide Sejahtera',
+                location: 'South Jakarta, Indonesia',
+                period: 'February 2024 — December 2024',
+                description:
+                    'Tested web and mobile applications, documented results, processed data, and provided customer support.',
+                points: [
+                    'Tested web and mobile applications to check various features, conditions, and usage scenarios.',
+                    'Documented application testing results and different application conditions using Microsoft Excel.',
+                    'Identified and recorded issues or conditions found during the testing process for team evaluation.',
+                    "Performed data entry and processing of vote-count data submitted by KPPS members through the company's web and mobile applications.",
+                    'Checked submitted data to maintain data accuracy and consistency during the data processing process.',
+                    'Provided customer support through WhatsApp to assist KPPS members with application-related issues.',
+                    'Worked collaboratively in assigned teams to support application testing, data processing, customer support, and daily project operations.',
+                ],
+            },
+        ],
+        education: [
+            {
+                degree: 'Bachelor of Information Systems',
+                school: 'Bina Sarana Informatika University',
+                period: 'September 2023 — August 2027 (Expected)',
+                description:
+                    'Focus on information systems, application development, databases, software engineering, UI/UX, and information technology.',
+            },
+        ],
+        certifications: [
+            {
+                name: 'BNSP Certification — Database Administrator',
+                issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+            },
+            {
+                name: 'BNSP Certification — Program Analysis',
+                issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+            },
+        ],
+        contact: {
+            getInTouch: 'Get in Touch',
+            description:
+                "I'm currently looking for internship opportunities in Android Development, Quality Assurance, UI/UX, or Database Administration. Feel free to reach out via email or social media!",
+            formTitle: 'Send a Message',
+            nameLabel: 'Your Name',
+            namePlaceholder: 'John Doe',
+            emailLabel: 'Your Email',
+            emailPlaceholder: 'john@example.com',
+            subjectLabel: 'Subject',
+            subjectPlaceholder: 'Opportunity / Project Inquiry',
+            messageLabel: 'Message',
+            messagePlaceholder: 'Hi Virza, I would like to discuss...',
+            sendBtn: 'Send Message',
+            copiedMsg: 'Email copied to clipboard!',
+        },
+        footer: {
+            rights: 'All rights reserved.',
+            designedBy: 'Designed & Built by Nazla Virza Rahman',
+        },
     },
 
-    skills: [
-        {
-            category: 'Android & Application Development',
-            icon: 'smartphone',
-            description: 'Building mobile applications with cross-platform frameworks.',
-            items: ['Flutter', 'Dart', 'Android Development'],
+    id: {
+        role: 'Mahasiswa Sistem Informasi',
+        greeting: 'Halo, nama saya',
+        tagline: 'Tertarik pada Pengembangan Android, UI/UX, Quality Assurance, dan Database',
+        bio: 'Mahasiswa Sistem Informasi dengan pengalaman dalam pengembangan aplikasi Android, desain UI/UX, quality assurance, pengujian perangkat lunak, serta pengelolaan database.',
+        availability: 'Terbuka untuk Magang',
+        nav: [
+            { label: 'Beranda', href: '#home' },
+            { label: 'Tentang', href: '#about' },
+            { label: 'Keahlian', href: '#skills' },
+            { label: 'Proyek', href: '#projects' },
+            { label: 'Pengalaman', href: '#experience' },
+            { label: 'Pendidikan', href: '#education' },
+            { label: 'Sertifikasi', href: '#certifications' },
+            { label: 'Kontak', href: '#contact' },
+        ],
+        resumeBtn: 'Resume',
+        downloadCvBtn: 'Unduh CV',
+        downloadCvFull: 'Unduh CV / Resume',
+        viewProjectsBtn: 'Lihat Proyek Saya',
+        sections: {
+            aboutTitle: 'Tentang Saya',
+            aboutSubtitle: 'Mengenal saya lebih dekat',
+            skillsTitle: 'Keahlian & Tech Stack',
+            skillsSubtitle: 'Teknologi dan tools yang saya gunakan',
+            projectsTitle: 'Proyek Unggulan',
+            projectsSubtitle: 'Karya terpilih & proyek akademis',
+            experienceTitle: 'Pengalaman',
+            experienceSubtitle: 'Perjalanan profesional & magang saya',
+            educationTitle: 'Pendidikan',
+            educationSubtitle: 'Latar belakang akademis & studi',
+            certificationsTitle: 'Sertifikasi',
+            certificationsSubtitle: 'Kredensial profesional & sertifikat',
+            contactTitle: 'Hubungi Saya',
+            contactSubtitle: 'Jangan ragu untuk menghubungi saya untuk peluang kerja atau pertanyaan',
         },
-        {
-            category: 'Database',
-            icon: 'database',
-            description: 'Managing and designing relational databases.',
-            items: ['Supabase', 'SQLite', 'HiveDB'],
-        },
-        {
-            category: 'UI/UX Design',
-            icon: 'palette',
-            description: 'Designing user-centered interfaces and experiences.',
-            items: ['Google Stitch', 'Figma'],
-        },
-        {
-            category: 'Quality Assurance & Testing',
-            icon: 'shield-check',
-            description: 'Ensuring software quality through systematic testing.',
-            items: ['Quality Assurance', 'Software Testing', 'Test Documentation'],
-        },
-        {
-            category: 'Tools',
-            icon: 'tools',
-            description: 'Productivity and version control tools.',
-            items: ['VSCode', 'Microsoft Excel', 'Git', 'GitHub'],
-        },
-    ],
-
-    projects: [
-        {
-            title: 'Student Attendance System – QR Code',
-            description:
-                'An Android-based student attendance application developed as an academic project to simplify attendance using QR Code technology.',
-            technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
-            features: [
-                'Developed an Android application for student attendance.',
-                'Implemented QR Code-based attendance functionality.',
-                'Designed the application interface with a focus on usability and user experience.',
-                'Implemented user authentication and role-based access for students and lecturers.',
-                'Managed attendance and user data using a database.',
-                'Developed the project as part of an academic Information Systems project.',
+        about: {
+            paragraphs: [
+                'Saya adalah mahasiswa Sistem Informasi yang memiliki ketertarikan kuat dalam pengembangan aplikasi, quality assurance, database, dan desain UI/UX. Saya senang membangun aplikasi melalui proyek akademis maupun pribadi sambil terus meningkatkan keterampilan teknis dan pemahaman tentang proses pengembangan perangkat lunak.',
+                'Saya juga memiliki pengalaman magang sebelumnya dalam bidang quality assurance, data entry, dan customer support, di mana saya menguji aplikasi web dan mobile, mendokumentasikan hasil pengujian, mengolah data, serta membantu pengguna yang mengalami kendala terkait aplikasi.',
+                'Saat ini saya sedang mencari kesempatan magang di mana saya dapat menerapkan keterampilan teknis saya, mendapatkan pengalaman profesional, dan terus berkembang di industri teknologi informasi.',
             ],
-            logo: '/images/projects/Absensi_QR_Code Mahasiswa.png',
-            image: null,
-            github: null,
-            demo: null,
-        },
-        {
-            title: 'Employee Payroll & Payslip System',
-            description:
-                'An Android-based payroll management application designed to manage employee data, payroll processing, salary calculations, and employee payslips.',
-            technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'Android'],
-            features: [
-                'Role-based authentication for Admin, HR, and Employee with session management.',
-                'Employee management with CRUD operations and search functionality.',
-                'Automated payroll calculation including allowances, deductions, and progressive PPh 21.',
-                'Payslip management with status tracking and edit capabilities.',
-                'Secure employee self-service for viewing personal payslips.',
-                'Row Level Security (RLS) enforcement at the database level.',
-                'Two-step payroll data saving with audit trail for salary components.',
-            ],
-            logo: '/images/projects/Sistem_Penggajian_Karyawan.png',
-            image: null,
-            github: null,
-            demo: null,
-        },
-    ],
-
-    experience: [
-        {
-            role: 'Quality Assurance & Data Entry Intern',
-            company: 'PT. Komunitas Ide Sejahtera',
-            location: 'South Jakarta, Indonesia',
-            period: 'February 2024 — December 2024',
-            description:
-                'Tested web and mobile applications, documented results, processed data, and provided customer support.',
-            points: [
-                'Tested web and mobile applications to check various features, conditions, and usage scenarios.',
-                'Documented application testing results and different application conditions using Microsoft Excel.',
-                "Identified and recorded issues or conditions found during the testing process for team evaluation.",
-                "Performed data entry and processing of vote-count data submitted by KPPS members through the company's web and mobile applications.",
-                'Checked submitted data to maintain data accuracy and consistency during the data processing process.',
-                'Provided customer support through WhatsApp to assist KPPS members with application-related issues.',
-                'Worked collaboratively in assigned teams to support application testing, data processing, customer support, and daily project operations.',
+            facts: [
+                { label: 'Status', value: 'Terbuka untuk Magang' },
+                { label: 'Lokasi', value: 'Tangerang Selatan, Indonesia' },
+                { label: 'Fokus', value: 'Teknologi Informasi' },
+                { label: 'Pendidikan', value: 'Sistem Informasi' },
             ],
         },
-    ],
-
-    education: [
-        {
-            degree: 'Bachelor of Information Systems',
-            school: 'Bina Sarana Informatika University',
-            period: 'September 2023 — August 2027 (Expected)',
+        skills: [
+            {
+                category: 'Android & Pengembangan Aplikasi',
+                icon: 'smartphone',
+                description: 'Membangun aplikasi mobile dengan framework lintas platform.',
+                items: ['Flutter', 'Dart', 'Android Development'],
+            },
+            {
+                category: 'Database',
+                icon: 'database',
+                description: 'Mengelola dan merancang database relasional.',
+                items: ['Supabase', 'SQLite', 'HiveDB'],
+            },
+            {
+                category: 'Desain UI/UX',
+                icon: 'palette',
+                description: 'Merancang antarmuka dan pengalaman pengguna berbasis kebutuhan pengguna.',
+                items: ['Google Stitch', 'Figma'],
+            },
+            {
+                category: 'Quality Assurance & Testing',
+                icon: 'shield-check',
+                description: 'Memastikan kualitas perangkat lunak melalui pengujian sistematis.',
+                items: ['Quality Assurance', 'Software Testing', 'Dokumentasi Pengujian'],
+            },
+            {
+                category: 'Tools / Alat Kerja',
+                icon: 'tools',
+                description: 'Tools produktivitas dan kontrol versi.',
+                items: ['VSCode', 'Microsoft Excel', 'Git', 'GitHub'],
+            },
+        ],
+        projects: [
+            {
+                title: 'Sistem Absensi Mahasiswa – QR Code',
+                description:
+                    'Aplikasi presensi mahasiswa berbasis Android yang dikembangkan sebagai proyek akademis untuk mempermudah presensi menggunakan teknologi QR Code.',
+                technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
+                features: [
+                    'Mengembangkan aplikasi Android untuk presensi mahasiswa.',
+                    'Mengimplementasikan fitur presensi berbasis QR Code.',
+                    'Merancang antarmuka aplikasi dengan fokus pada kemudahan penggunaan dan UX.',
+                    'Mengimplementasikan otentikasi pengguna dan hak akses berbasis peran untuk mahasiswa dan dosen.',
+                    'Mengelola data presensi dan pengguna menggunakan database.',
+                    'Mengembangkan proyek sebagai bagian dari tugas akademis Sistem Informasi.',
+                ],
+                logo: '/images/projects/Absensi_QR_Code Mahasiswa.png',
+                image: null,
+                github: null,
+                demo: null,
+            },
+            {
+                title: 'Sistem Penggajian & Slip Gaji Karyawan',
+                description:
+                    'Aplikasi manajemen penggajian berbasis Android yang dirancang untuk mengelola data karyawan, pemrosesan penggajian, perhitungan gaji, dan slip gaji karyawan.',
+                technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'Android'],
+                features: [
+                    'Otentikasi berbasis peran untuk Admin, HR, dan Karyawan dengan manajemen sesi.',
+                    'Manajemen data karyawan dengan operasi CRUD dan fitur pencarian.',
+                    'Perhitungan gaji otomatis termasuk tunjangan, potongan, dan PPh 21 progresif.',
+                    'Manajemen slip gaji dengan pelacakan status dan kemampuan pengeditan.',
+                    'Self-service karyawan yang aman untuk melihat slip gaji pribadi.',
+                    'Penerapan Row Level Security (RLS) pada tingkat database.',
+                    'Penyimpanan data penggajian dua langkah dengan audit trail untuk komponen gaji.',
+                ],
+                logo: '/images/projects/Sistem_Penggajian_Karyawan.png',
+                image: null,
+                github: null,
+                demo: null,
+            },
+        ],
+        experience: [
+            {
+                role: 'Intern Quality Assurance & Data Entry',
+                company: 'PT. Komunitas Ide Sejahtera',
+                location: 'Jakarta Selatan, Indonesia',
+                period: 'Februari 2024 — Desember 2024',
+                description:
+                    'Menguji aplikasi web dan mobile, mendokumentasikan hasil pengujian, mengolah data, dan memberikan layanan bantuan pengguna.',
+                points: [
+                    'Menguji aplikasi web dan mobile untuk memeriksa berbagai fitur, kondisi, dan skenario penggunaan.',
+                    'Mendokumentasikan hasil pengujian aplikasi dan berbagai kondisi aplikasi menggunakan Microsoft Excel.',
+                    'Mengidentifikasi dan mencatat masalah atau kondisi yang ditemukan selama proses pengujian untuk evaluasi tim.',
+                    'Melakukan perolehan data dan pengolahan data hasil perhitungan suara yang dikirimkan oleh anggota KPPS melalui aplikasi web dan mobile perusahaan.',
+                    'Memeriksa data yang masuk untuk menjaga akurasi dan konsistensi data selama proses pengolahan data.',
+                    'Layanan bantuan pengguna melalui WhatsApp untuk membantu anggota KPPS yang mengalami kendala terkait aplikasi.',
+                    'Bekerja secara kolaboratif dalam tim yang ditugaskan untuk mendukung pengujian aplikasi, pengolahan data, dukungan pelanggan, dan operasional proyek harian.',
+                ],
+            },
+        ],
+        education: [
+            {
+                degree: 'Sarjana Sistem Informasi (S1)',
+                school: 'Universitas Bina Sarana Informatika',
+                period: 'September 2023 — Agustus 2027 (Diperkirakan)',
+                description:
+                    'Fokus pada sistem informasi, pengembangan aplikasi, database, rekayasa perangkat lunak, UI/UX, dan teknologi informasi.',
+            },
+        ],
+        certifications: [
+            {
+                name: 'Sertifikasi BNSP — Database Administrator',
+                issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+            },
+            {
+                name: 'Sertifikasi BNSP — Analisis Program',
+                issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+            },
+        ],
+        contact: {
+            getInTouch: 'Mari Terhubung',
             description:
-                'Focus on information systems, application development, databases, software engineering, UI/UX, and information technology.',
+                'Saat ini saya sedang mencari kesempatan magang di bidang Android Development, Quality Assurance, UI/UX, atau Database Administration. Jangan ragu untuk menghubungi saya melalui email atau media sosial!',
+            formTitle: 'Kirim Pesan',
+            nameLabel: 'Nama Anda',
+            namePlaceholder: 'Nama Lengkap',
+            emailLabel: 'Email Anda',
+            emailPlaceholder: 'email@contoh.com',
+            subjectLabel: 'Subjek',
+            subjectPlaceholder: 'Peluang Kerja / Pertanyaan Proyek',
+            messageLabel: 'Pesan',
+            messagePlaceholder: 'Halo Virza, saya ingin mendiskusikan...',
+            sendBtn: 'Kirim Pesan',
+            copiedMsg: 'Email berhasil disalin ke clipboard!',
         },
-    ],
-
-    certifications: [
-        {
-            name: 'BNSP Certification — Database Administrator',
-            issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+        footer: {
+            rights: 'Hak cipta dilindungi.',
+            designedBy: 'Dirancang & Dibangun oleh Nazla Virza Rahman',
         },
-        {
-            name: 'BNSP Certification — Program Analysis',
-            issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
-        },
-    ],
+    },
 };

@@ -341,6 +341,24 @@ const iconClass = computed(() => {
             <circle cx="12" cy="10" r="3"></circle>
         </svg>
 
+        <svg
+            v-else-if="name === 'translate'"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-full"
+        >
+            <path d="m5 8 6 6"></path>
+            <path d="m4 14 6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2v3"></path>
+            <path d="M22 22l-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+        </svg>
+
         <svg v-else viewBox="0 0 24 24" fill="currentColor" class="size-full">
             <circle cx="12" cy="12" r="4"></circle>
         </svg>

@@ -1,9 +1,9 @@
 <script setup>
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
-const education = portfolio.education;
+const { portfolioData } = useLanguage();
 
 const itemReveal = (index) => ({
     initial: { opacity: 0, y: 28 },
@@ -18,11 +18,11 @@ const itemReveal = (index) => ({
 <template>
     <section id="education" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="05" title="Education" />
+            <SectionHeading number="05" :title="portfolioData.sections.educationTitle" />
 
             <ol class="max-w-3xl">
                 <li
-                    v-for="(item, index) in education"
+                    v-for="(item, index) in portfolioData.education"
                     :key="item.degree"
                     v-motion="itemReveal(index)"
                     class="timeline-item"

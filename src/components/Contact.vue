@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
+
+const { portfolioData } = useLanguage();
 
 const copied = ref(false);
 let copyTimer = null;
@@ -19,10 +21,10 @@ const errorMessage = ref('');
 
 const copyEmail = async () => {
     try {
-        await navigator.clipboard.writeText(portfolio.email);
+        await navigator.clipboard.writeText(portfolioData.value.email);
     } catch {
         const helper = document.createElement('textarea');
-        helper.value = portfolio.email;
+        helper.value = portfolioData.value.email;
         helper.setAttribute('readonly', '');
         helper.style.position = 'fixed';
         helper.style.opacity = '0';
@@ -47,7 +49,7 @@ const onSubmit = async () => {
     errorMessage.value = '';
 
     try {
-        const response = await fetch(`https://formsubmit.co/ajax/${portfolio.email}`, {
+        const response = await fetch(`https://formsubmit.co/ajax/${portfolioData.value.email}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,28 +84,27 @@ const onSubmit = async () => {
 <template>
     <section id="contact" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="07" title="Get In Touch" />
+            <SectionHeading number="07" :title="portfolioData.sections.contactTitle" />
 
             <div class="grid gap-14 lg:grid-cols-2 lg:gap-20">
                 <div v-motion :initial="{ opacity: 0, x: -28 }" :visible="{ opacity: 1, x: 0 }">
                     <p class="max-w-md text-base leading-relaxed text-slate-400">
-                        My inbox is always open — whether you have a project idea, a job opportunity,
-                        or just want to say hi. I will do my best to get back to you as soon as possible.
+                        {{ portfolioData.contact.description }}
                     </p>
 
                     <div class="mt-10">
                         <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Email me at</p>
                         <div class="mt-3 flex flex-wrap items-center gap-4">
                             <a
-                                :href="`mailto:${portfolio.email}`"
+                                :href="`mailto:${portfolioData.email}`"
                                 class="break-all text-xl font-semibold text-white transition-colors duration-300 hover:text-accent-300 sm:text-2xl"
                             >
-                                {{ portfolio.email }}
+                                {{ portfolioData.email }}
                             </a>
                             <button
                                 type="button"
-                                :aria-label="copied ? 'Copied!' : 'Copy email address'"
-                                :title="copied ? 'Copied to clipboard!' : 'Copy email'"
+                                :aria-label="copied ? portfolioData.contact.copiedMsg : 'Copy email address'"
+                                :title="copied ? portfolioData.contact.copiedMsg : 'Copy email'"
                                 :class="[
                                     'icon-btn size-9 cursor-pointer transition-all duration-300',
                                     copied
@@ -121,7 +122,7 @@ const onSubmit = async () => {
                         <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Find me on</p>
                         <div class="mt-4 flex items-center gap-3">
                             <a
-                                v-for="social in portfolio.socials"
+                                v-for="social in portfolioData.socials"
                                 :key="social.label"
                                 :href="social.url"
                                 target="_blank"
@@ -137,7 +138,7 @@ const onSubmit = async () => {
 
                     <p class="mt-10 flex items-center gap-2 text-sm text-slate-500">
                         <AppIcon name="pin" size="4" class="text-accent-400" />
-                        {{ portfolio.location }} · {{ portfolio.availability }}
+                        {{ portfolioData.location }} · {{ portfolioData.availability }}
                     </p>
                 </div>
 
@@ -151,7 +152,7 @@ const onSubmit = async () => {
                     <div class="space-y-6">
                         <div>
                             <label for="contact-name" class="mb-2 block text-xs font-semibold uppercase tracking-widest text-slate-400">
-                                Name
+                                {{ portfolioData.contact.nameLabel }}
                             </label>
                             <input
                                 id="contact-name"
@@ -160,7 +161,7 @@ const onSubmit = async () => {
                                 type="text"
                                 required
                                 autocomplete="name"
-                                placeholder="Your name"
+                                :placeholder="portfolioData.contact.namePlaceholder"
                                 :disabled="isSubmitting"
                                 class="input-field disabled:opacity-50"
                             />
@@ -168,7 +169,7 @@ const onSubmit = async () => {
 
                         <div>
                             <label for="contact-email" class="mb-2 block text-xs font-semibold uppercase tracking-widest text-slate-400">
-                                Email
+                                {{ portfolioData.contact.emailLabel }}
                             </label>
                             <input
                                 id="contact-email"
@@ -177,7 +178,7 @@ const onSubmit = async () => {
                                 type="email"
                                 required
                                 autocomplete="email"
-                                placeholder="you@example.com"
+                                :placeholder="portfolioData.contact.emailPlaceholder"
                                 :disabled="isSubmitting"
                                 class="input-field disabled:opacity-50"
                             />
@@ -185,7 +186,7 @@ const onSubmit = async () => {
 
                         <div>
                             <label for="contact-message" class="mb-2 block text-xs font-semibold uppercase tracking-widest text-slate-400">
-                                Message
+                                {{ portfolioData.contact.messageLabel }}
                             </label>
                             <textarea
                                 id="contact-message"
@@ -193,7 +194,7 @@ const onSubmit = async () => {
                                 name="message"
                                 rows="5"
                                 required
-                                placeholder="Tell me about your project..."
+                                :placeholder="portfolioData.contact.messagePlaceholder"
                                 :disabled="isSubmitting"
                                 class="input-field resize-none disabled:opacity-50"
                             ></textarea>
@@ -213,21 +214,17 @@ const onSubmit = async () => {
                             Sending...
                         </template>
                         <template v-else>
-                            Send Message
+                            {{ portfolioData.contact.sendBtn }}
                             <AppIcon name="send" class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </template>
                     </button>
-
-                    <p class="mt-5 text-xs leading-relaxed text-slate-500">
-                        Messages sent through this form are delivered directly to my email inbox.
-                    </p>
 
                     <p
                         v-if="submitSuccess"
                         role="status"
                         class="mt-5 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.06] px-4 py-3 text-sm text-emerald-300"
                     >
-                        Thank you! Your message has been sent successfully. I will get back to you soon.
+                        Thank you! Your message has been sent successfully.
                     </p>
 
                     <p

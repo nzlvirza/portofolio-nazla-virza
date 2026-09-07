@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import AppIcon from './AppIcon.vue';
 
-const socials = portfolio.socials;
+const { portfolioData } = useLanguage();
 const imgFailed = ref(false);
 
 const scrollToProjects = (event) => {
@@ -39,36 +39,36 @@ const reveal = (delay = 0) => ({
                 <div class="order-2 lg:order-1">
                     <p v-motion="reveal(0)" class="eyebrow mb-4 flex items-center gap-3 sm:mb-6">
                         <span class="h-px w-10 bg-accent-500/70" aria-hidden="true"></span>
-                        {{ portfolio.greeting }}
+                        {{ portfolioData.greeting }}
                     </p>
 
                     <h1 v-motion="reveal(100)" class="text-balance">
                         <span class="block text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-                            {{ portfolio.name }}<span class="text-accent-400">.</span>
+                            {{ portfolioData.name }}<span class="text-accent-400">.</span>
                         </span>
                         <span class="mt-3 block text-xl font-semibold tracking-tight text-accent-300 sm:mt-4 sm:text-3xl lg:text-4xl">
-                            {{ portfolio.role }}
+                            {{ portfolioData.role }}
                         </span>
                     </h1>
 
                     <p v-motion="reveal(200)" class="mt-5 max-w-xl text-base leading-relaxed text-slate-400 sm:mt-7 sm:text-lg">
-                        {{ portfolio.bio }}
+                        {{ portfolioData.bio }}
                     </p>
 
                     <div v-motion="reveal(300)" class="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
                         <a href="#projects" class="btn btn-primary group" @click="scrollToProjects">
-                            View My Projects
+                            {{ portfolioData.viewProjectsBtn }}
                             <AppIcon name="arrow-right" class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
-                        <a :href="portfolio.cvUrl" download="Nazla-Virza-Rahman-CV.pdf" class="btn btn-secondary group">
+                        <a :href="portfolioData.cvUrl" download="Nazla-Virza-Rahman-CV.pdf" class="btn btn-secondary group">
                             <AppIcon name="download" class="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-                            Download CV
+                            {{ portfolioData.downloadCvBtn }}
                         </a>
                     </div>
 
                     <div v-motion="reveal(400)" class="mt-10 flex items-center gap-3 sm:mt-12">
                         <a
-                            v-for="social in socials"
+                            v-for="social in portfolioData.socials"
                             :key="social.label"
                             :href="social.url"
                             target="_blank"
@@ -103,22 +103,12 @@ const reveal = (delay = 0) => ({
                                     class="size-full object-cover object-center"
                                     @error="imgFailed = true"
                                 />
-                                <span v-else class="text-4xl font-bold text-accent-300 sm:text-5xl lg:text-6xl">{{ portfolio.initial }}</span>
+                                <span v-else class="text-4xl font-bold text-accent-300 sm:text-5xl lg:text-6xl">{{ portfolioData.initial }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- <a
-            href="#about"
-            aria-label="Scroll to about section"
-            class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 text-slate-600 transition-colors duration-300 hover:text-accent-300 md:block"
-        >
-            <span class="animate-bounce-soft block">
-                <AppIcon name="chevron-down" size="6" />
-            </span>
-        </a> -->
     </section>
 </template>

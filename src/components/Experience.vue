@@ -1,9 +1,9 @@
 <script setup>
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
-const experience = portfolio.experience;
+const { portfolioData } = useLanguage();
 
 const itemReveal = (index) => ({
     initial: { opacity: 0, y: 28 },
@@ -18,11 +18,11 @@ const itemReveal = (index) => ({
 <template>
     <section id="experience" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="04" title="Where I've Worked" />
+            <SectionHeading number="04" :title="portfolioData.sections.experienceTitle" />
 
             <ol class="max-w-3xl">
                 <li
-                    v-for="(item, index) in experience"
+                    v-for="(item, index) in portfolioData.experience"
                     :key="item.role"
                     v-motion="itemReveal(index)"
                     class="timeline-item"

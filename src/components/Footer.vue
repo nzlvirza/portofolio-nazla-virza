@@ -1,7 +1,8 @@
 <script setup>
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import AppIcon from './AppIcon.vue';
 
+const { portfolioData } = useLanguage();
 const year = new Date().getFullYear();
 
 const scrollToTop = (event) => {
@@ -23,16 +24,16 @@ const scrollToTop = (event) => {
                     class="font-bold tracking-tight text-white transition-colors duration-300 hover:text-accent-300"
                     @click="scrollToTop"
                 >
-                    {{ portfolio.name }}<span class="text-accent-400">.</span>
+                    {{ portfolioData.name }}<span class="text-accent-400">.</span>
                 </a>
                 <p class="mt-1 text-xs text-slate-600">
-                    &copy; {{ year }} {{ portfolio.name }} · Built with Vue 3, Vite &amp; Tailwind CSS
+                    &copy; {{ year }} {{ portfolioData.name }} · {{ portfolioData.footer.rights }}
                 </p>
             </div>
 
             <div class="flex items-center gap-3">
                 <a
-                    v-for="social in portfolio.socials"
+                    v-for="social in portfolioData.socials"
                     :key="social.label"
                     :href="social.url"
                     target="_blank"

@@ -1,9 +1,9 @@
 <script setup>
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
-const about = portfolio.about;
+const { portfolioData } = useLanguage();
 
 const paragraphReveal = (index) => ({
     initial: { opacity: 0, y: 28 },
@@ -18,12 +18,12 @@ const paragraphReveal = (index) => ({
 <template>
     <section id="about" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="01" title="About Me" />
+            <SectionHeading number="01" :title="portfolioData.sections.aboutTitle" :subtitle="portfolioData.sections.aboutSubtitle" />
 
             <div class="grid gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">
                 <div>
                     <p
-                        v-for="(paragraph, index) in about.paragraphs"
+                        v-for="(paragraph, index) in portfolioData.about.paragraphs"
                         :key="index"
                         v-motion="paragraphReveal(index)"
                         class="mb-5 leading-relaxed text-slate-400 last:mb-0"
@@ -42,7 +42,7 @@ const paragraphReveal = (index) => ({
 
                     <dl class="mt-6 space-y-5">
                         <div
-                            v-for="fact in about.facts"
+                            v-for="fact in portfolioData.about.facts"
                             :key="fact.label"
                             class="flex items-start justify-between gap-4 border-b border-white/[0.05] pb-4 last:border-0 last:pb-0"
                         >
@@ -61,7 +61,7 @@ const paragraphReveal = (index) => ({
                             <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none"></span>
                             <span class="relative inline-flex size-2 rounded-full bg-emerald-400"></span>
                         </span>
-                        {{ portfolio.availability }}
+                        {{ portfolioData.availability }}
                     </span>
                 </aside>
             </div>

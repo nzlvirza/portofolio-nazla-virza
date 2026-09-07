@@ -1,9 +1,9 @@
 <script setup>
-import { portfolio } from '../data/portfolio';
+import { useLanguage } from '../composables/useLanguage';
 import SectionHeading from './SectionHeading.vue';
 import AppIcon from './AppIcon.vue';
 
-const certifications = portfolio.certifications;
+const { portfolioData } = useLanguage();
 
 const cardReveal = (index) => ({
     initial: { opacity: 0, y: 28 },
@@ -16,13 +16,13 @@ const cardReveal = (index) => ({
 </script>
 
 <template>
-    <section v-if="certifications && certifications.length" id="certifications" class="relative scroll-mt-20 py-24 sm:py-28">
+    <section v-if="portfolioData.certifications && portfolioData.certifications.length" id="certifications" class="relative scroll-mt-20 py-24 sm:py-28">
         <div class="container-site">
-            <SectionHeading number="06" title="Certifications" />
+            <SectionHeading number="06" :title="portfolioData.sections.certificationsTitle" />
 
             <div class="grid gap-6 md:grid-cols-2">
                 <div
-                    v-for="(cert, index) in certifications"
+                    v-for="(cert, index) in portfolioData.certifications"
                     :key="cert.name"
                     v-motion="cardReveal(index)"
                     class="card card-hover group p-7"

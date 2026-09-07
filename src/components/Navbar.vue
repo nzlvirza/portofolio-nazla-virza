@@ -1,18 +1,11 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { portfolio } from '../data/portfolio';
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { useLanguage } from '../composables/useLanguage';
 import AppIcon from './AppIcon.vue';
 
-const links = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Education', href: '#education' },
-    { label: 'Certifications', href: '#certifications' },
-    { label: 'Contact', href: '#contact' },
-];
+const { currentLang, toggleLang, portfolioData } = useLanguage();
+
+const links = computed(() => portfolioData.value.nav);
 
 const header = ref(null);
 const isScrolled = ref(false);
@@ -87,7 +80,7 @@ onMounted(() => {
     document.addEventListener('keydown', onKeydown);
 
     if ('IntersectionObserver' in window) {
-        const sections = links
+        const sections = links.value
             .map((link) => document.querySelector(link.href))
             .filter(Boolean);
 
@@ -132,7 +125,7 @@ onBeforeUnmount(() => {
                     class="text-lg font-bold tracking-tight text-white transition-colors duration-300 hover:text-white"
                     @click="scrollToSection($event, '#home')"
                 >
-                    {{ portfolio.name }}<span class="text-accent-400">.</span>
+                    {{ portfolioData.name }}<span class="text-accent-400">.</span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -152,12 +145,24 @@ onBeforeUnmount(() => {
 
                     <!-- Resume Button -->
                     <a
-                        :href="portfolio.cvUrl"
+                        :href="portfolioData.cvUrl"
                         download="Nazla-Virza-Rahman-CV.pdf"
                         class="rounded-full border border-accent-400/40 bg-accent-500/10 px-4 py-1.5 text-sm font-medium text-accent-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-400 hover:bg-accent-500/20 hover:text-white hover:shadow-glow"
                     >
-                        Resume
+                        {{ portfolioData.resumeBtn }}
                     </a>
+
+                    <!-- Language Switcher Button (Translate Icon next to Resume) -->
+                    <button
+                        type="button"
+                        :title="currentLang === 'en' ? 'Ganti ke Bahasa Indonesia' : 'Switch to English'"
+                        :aria-label="currentLang === 'en' ? 'Ganti ke Bahasa Indonesia' : 'Switch to English'"
+                        class="group relative flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold tracking-wider text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-400/50 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400/60"
+                        @click="toggleLang"
+                    >
+                        <AppIcon name="translate" size="4" class="text-accent-400 transition-transform duration-300 group-hover:scale-110" />
+                        <span class="uppercase text-slate-200">{{ currentLang === 'en' ? 'ID' : 'EN' }}</span>
+                    </button>
                 </nav>
 
                 <!-- Mobile Menu Toggle Button -->
@@ -196,15 +201,23 @@ onBeforeUnmount(() => {
                             {{ link.label }}
                         </a>
                     </li>
-                    <li class="mt-3 border-t border-white/[0.06] px-2 pt-4">
+                    <li class="mt-3 flex items-center justify-between gap-3 border-t border-white/[0.06] px-2 pt-4">
+                        <button
+                            type="button"
+                            class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10"
+                            @click="toggleLang"
+                        >
+                            <AppIcon name="translate" size="4" class="text-accent-400" />
+                            <span>{{ currentLang === 'en' ? 'Bahasa Indonesia' : 'English' }}</span>
+                        </button>
                         <a
-                            :href="portfolio.cvUrl"
+                            :href="portfolioData.cvUrl"
                             download="Nazla-Virza-Rahman-CV.pdf"
-                            class="btn btn-secondary w-full"
+                            class="btn btn-secondary flex-1"
                             @click="closeMenu"
                         >
                             <AppIcon name="download" size="4" />
-                            Download CV / Resume
+                            {{ portfolioData.downloadCvBtn }}
                         </a>
                     </li>
                 </ul>
