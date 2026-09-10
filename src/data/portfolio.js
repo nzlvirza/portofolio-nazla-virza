@@ -20,8 +20,8 @@ export const portfolio = {
         },
         {
             label: 'LinkedIn',
-            handle: 'in/virza',
-            url: 'https://www.linkedin.com/in/virza',
+            handle: 'Nazla Virza Rahman',
+            url: 'https://www.linkedin.com/in/nazla-virza-rahman-23205b2b0/',
             icon: 'linkedin',
         },
         {
