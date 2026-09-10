@@ -181,7 +181,7 @@ export const portfolio = {
             {
                 degree: 'Bachelor of Information Systems',
                 school: 'Bina Sarana Informatika University',
-                period: 'September 2023 — August 2027 (Expected) - Now: 7th Semester',
+                period: 'September 2023 - August 2027 (Expected)',
                 description:
                     'Focus on information systems, application development, databases, software engineering, UI/UX, and information technology.',
             },
