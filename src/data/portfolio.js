@@ -163,7 +163,7 @@ export const portfolio = {
                 role: 'Quality Assurance & Data Entry Intern',
                 company: 'PT. Komunitas Ide Sejahtera',
                 location: 'South Jakarta, Indonesia',
-                period: 'February 2024 — December 2024',
+                period: 'February 2024 - December 2024',
                 description:
                     'Tested web and mobile applications, documented results, processed data, and provided customer support.',
                 points: [
@@ -188,11 +188,11 @@ export const portfolio = {
         ],
         certifications: [
             {
-                name: 'BNSP Certification — Database Administrator',
+                name: 'BNSP Certification - Database Administrator',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
             },
             {
-                name: 'BNSP Certification — Program Analysis',
+                name: 'BNSP Certification - Program Analysis',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
             },
         ],
