@@ -301,7 +301,7 @@ export const portfolio = {
         ],
         projects: [
             {
-                title: 'Sistem Absensi Mahasiswa – QR Code',
+                title: 'Sistem Absensi Mahasiswa QR Code',
                 description:
                     'Aplikasi presensi mahasiswa berbasis Android yang dikembangkan sebagai proyek akademis untuk mempermudah presensi menggunakan teknologi QR Code.',
                 technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
