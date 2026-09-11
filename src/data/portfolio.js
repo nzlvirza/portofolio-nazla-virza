@@ -368,11 +368,11 @@ export const portfolio = {
         ],
         certifications: [
             {
-                name: 'Sertifikasi BNSP — Database Administrator',
+                name: 'Sertifikasi BNSP - Database Administrator',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
             },
             {
-                name: 'Sertifikasi BNSP — Analisis Program',
+                name: 'Sertifikasi BNSP - Analisis Program',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
             },
         ],
