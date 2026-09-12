@@ -33,11 +33,15 @@ const getIcons = (icon) => {
                     v-motion="cardReveal(index)"
                     class="card card-hover group p-8"
                 >
-                    <div
-                        class="mb-6 flex h-12 min-w-12 w-fit items-center justify-center gap-2.5 rounded-xl border border-accent-400/20 bg-accent-500/10 px-3 text-accent-300 transition-all duration-300 group-hover:border-accent-400/50 group-hover:shadow-glow"
-                    >
-                        <AppIcon v-for="iconName in getIcons(group.icon)" :key="iconName" :name="iconName" size="6" />
-                    </div>
+                    <div class="mb-6 flex items-center gap-2.5">
+    <div
+        v-for="iconName in getIcons(group.icon)"
+        :key="iconName"
+        class="flex h-12 w-12 items-center justify-center rounded-xl border border-accent-400/20 bg-accent-500/10 text-accent-300 transition-all duration-300 group-hover:border-accent-400/50 group-hover:shadow-glow"
+    >
+        <AppIcon :name="iconName" size="6" />
+    </div>
+</div>
 
                     <h3 class="text-lg font-semibold text-white">{{ group.category }}</h3>
                     <p class="mt-2 text-sm leading-relaxed text-slate-500">{{ group.description }}</p>
