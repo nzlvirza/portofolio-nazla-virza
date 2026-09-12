@@ -116,7 +116,7 @@ export const portfolio = {
                 category: 'Tools',
                 icon: 'tools',
                 description: 'Productivity and version control tools.',
-                items: ['VSCode', 'Anti Gravity', 'Microsoft Excel', 'Git', 'GitHub'],
+                items: ['VSCode', 'Anti Gravity', 'Android Studio', 'Microsoft Excel', 'Git', 'GitHub'],
             },
         ],
         projects: [
