@@ -99,7 +99,7 @@ export const portfolio = {
                 category: 'Database',
                 icon: 'database',
                 description: 'Managing and designing relational databases.',
-                items: ['Supabase', 'SQLite', 'HiveDB'],
+                items: ['Supabase', 'SQLite', 'HiveDB', 'PostgreSQL', 'MySQL'],
             },
             {
                 category: 'UI/UX Design',
@@ -279,7 +279,7 @@ export const portfolio = {
                 category: 'Database',
                 icon: 'database',
                 description: 'Mengelola dan merancang database relasional.',
-                items: ['Supabase', 'SQLite', 'HiveDB'],
+                items: ['Supabase', 'SQLite', 'HiveDB', 'PostgreSQL', 'MySQL'],
             },
             {
                 category: 'Desain UI/UX',
