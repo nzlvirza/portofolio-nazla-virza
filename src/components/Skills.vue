@@ -13,6 +13,12 @@ const cardReveal = (index) => ({
         transition: { duration: 0.7, delay: index * 90, ease: [0.22, 1, 0.36, 1] },
     },
 });
+
+const getIcons = (icon) => {
+    if (Array.isArray(icon)) return icon;
+    if (typeof icon === 'string' && icon.includes(',')) return icon.split(',').map((i) => i.trim());
+    return [icon];
+};
 </script>
 
 <template>
@@ -28,9 +34,9 @@ const cardReveal = (index) => ({
                     class="card card-hover group p-8"
                 >
                     <div
-                        class="mb-6 grid size-12 place-items-center rounded-xl border border-accent-400/20 bg-accent-500/10 text-accent-300 transition-all duration-300 group-hover:border-accent-400/50 group-hover:shadow-glow"
+                        class="mb-6 flex h-12 min-w-12 w-fit items-center justify-center gap-2.5 rounded-xl border border-accent-400/20 bg-accent-500/10 px-3 text-accent-300 transition-all duration-300 group-hover:border-accent-400/50 group-hover:shadow-glow"
                     >
-                        <AppIcon :name="group.icon" size="6" />
+                        <AppIcon v-for="iconName in getIcons(group.icon)" :key="iconName" :name="iconName" size="6" />
                     </div>
 
                     <h3 class="text-lg font-semibold text-white">{{ group.category }}</h3>
