@@ -89,10 +89,10 @@ export const portfolio = {
         },
         skills: [
             {
-                category: 'Android & Application Development',
+                category: 'Mobile App Development & Web Development',
                 icon: 'smartphone',
-                description: 'Building mobile applications with cross-platform frameworks.',
-                items: ['Flutter', 'Dart', 'Android Development'],
+                description: 'Membangun aplikasi mobile & website dengan framework lintas platform.',
+                items: ['Flutter', 'Dart', 'Laravel', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
             },
             {
                 category: 'Database',
@@ -272,7 +272,7 @@ export const portfolio = {
                 category: 'Mobile App Development & Web Development',
                 icon: 'smartphone',
                 description: 'Membangun aplikasi mobile & website dengan framework lintas platform.',
-               items: ['Flutter', 'Dart', 'Laravel', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
+                items: ['Flutter', 'Dart', 'Laravel', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
             },
             {
                 category: 'Database',
