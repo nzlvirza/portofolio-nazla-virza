@@ -91,7 +91,6 @@ export const portfolio = {
             {
                 category: 'Mobile App Development & Web Development',
                 icon: 'smartphone',
-                icon: 'computer',
                 description: 'Membangun aplikasi mobile & website dengan framework lintas platform.',
                 items: ['Flutter', 'Dart', 'Laravel', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
             },
