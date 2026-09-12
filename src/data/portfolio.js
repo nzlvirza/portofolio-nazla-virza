@@ -269,10 +269,10 @@ export const portfolio = {
         },
         skills: [
             {
-                category: 'Android & Pengembangan Aplikasi',
+                category: 'Mobile Application & Web Development',
                 icon: 'smartphone',
-                description: 'Membangun aplikasi mobile dengan framework lintas platform.',
-                items: ['Flutter', 'Dart', 'Android Development'],
+                description: 'Membangun aplikasi mobile & website dengan framework lintas platform.',
+                items: ['Flutter', 'Dart', 'Laravel', 'PHP', 'HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
             },
             {
                 category: 'Database',
@@ -296,7 +296,7 @@ export const portfolio = {
                 category: 'Tools / Alat Kerja',
                 icon: 'tools',
                 description: 'Tools produktivitas dan kontrol versi.',
-                items: ['VSCode', 'Microsoft Excel', 'Git', 'GitHub'],
+                items: ['VSCode', 'Anti Gravity', 'Android Studio', 'Microsoft Excel', 'Git', 'GitHub'],
             },
         ],
         projects: [
