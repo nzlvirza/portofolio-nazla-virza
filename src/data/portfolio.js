@@ -83,7 +83,7 @@ export const portfolio = {
             facts: [
                 { label: 'Status', value: 'Open to Internship' },
                 { label: 'Location', value: 'South Tangerang, Indonesia' },
-                { label: 'Focus', value: 'Information Technology' },
+                { label: 'Focus', value: 'Information Systems' },
                 { label: 'Education', value: 'Information Systems' },
             ],
         },
@@ -94,7 +94,6 @@ export const portfolio = {
                 description: 'Building mobile applications & websites with cross-platform frameworks.',
                 items: ['Flutter', 'Dart', 'Laravel', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
             },
-
             {
                 category: 'Database',
                 icon: 'database',
@@ -264,7 +263,7 @@ export const portfolio = {
             facts: [
                 { label: 'Status', value: 'Terbuka untuk Magang' },
                 { label: 'Lokasi', value: 'Tangerang Selatan, Indonesia' },
-                { label: 'Fokus', value: 'Teknologi Informasi' },
+                { label: 'Fokus', value: 'Sistem Informasi' },
                 { label: 'Pendidikan', value: 'Sistem Informasi' },
             ],
         },
@@ -279,7 +278,7 @@ export const portfolio = {
                 category: 'Database',
                 icon: 'database',
                 description: 'Mengelola dan merancang database relasional.',
-                items: ['Supabase', 'SQLite', 'HiveDB', 'PostgreSQL', 'MySQL'],
+                items: ['Supabase', 'SQLite', 'HiveDB'],
             },
             {
                 category: 'Desain UI/UX',
