@@ -58,6 +58,8 @@ export const portfolio = {
         downloadCvBtn: 'Download CV',
         downloadCvFull: 'Download CV / Resume',
         viewProjectsBtn: 'View My Projects',
+        viewCertificateBtn: 'View Certificate',
+        certificateNotPublished: 'Certificate Not Published Yet',
         sections: {
             aboutTitle: 'About Me',
             aboutSubtitle: 'Get to know me better',
@@ -190,10 +192,15 @@ export const portfolio = {
             {
                 name: 'BNSP Certification - Database Administrator',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+                images: [
+                    '/images/certifications/bnsp-database-administrator/bnsp-database-administrator-1.jpg',
+                    '/images/certifications/bnsp-database-administrator/bnsp-database-administrator-2.jpg',
+                ],
             },
             {
                 name: 'BNSP Certification - Program Analysis',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+                images: [],
             },
         ],
         contact: {
@@ -238,6 +245,8 @@ export const portfolio = {
         downloadCvBtn: 'Unduh CV',
         downloadCvFull: 'Unduh CV / Resume',
         viewProjectsBtn: 'Lihat Proyek Saya',
+        viewCertificateBtn: 'Lihat Sertifikat',
+        certificateNotPublished: 'Sertifikat Belum di Publish',
         sections: {
             aboutTitle: 'Tentang Saya',
             aboutSubtitle: 'Mengenal saya lebih dekat',
@@ -343,7 +352,7 @@ export const portfolio = {
                 role: 'Intern Quality Assurance & Data Entry',
                 company: 'PT. Komunitas Ide Sejahtera',
                 location: 'Jakarta Selatan, Indonesia',
-                period: 'Februari 2024 — Desember 2024',
+                period: 'Februari 2024 - Desember 2024',
                 description:
                     'Menguji aplikasi web dan mobile, mendokumentasikan hasil pengujian, mengolah data, dan memberikan layanan bantuan pengguna.',
                 points: [
@@ -370,10 +379,15 @@ export const portfolio = {
             {
                 name: 'Sertifikasi BNSP - Database Administrator',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+                images: [
+                    '/images/certifications/bnsp-database-administrator/bnsp-database-administrator-1.jpg',
+                    '/images/certifications/bnsp-database-administrator/bnsp-database-administrator-2.jpg',
+                ],
             },
             {
                 name: 'Sertifikasi BNSP - Analisis Program',
                 issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+                images: [],
             },
         ],
         contact: {

@@ -142,6 +142,19 @@ const iconClass = computed(() => {
         </svg>
 
         <svg
+            v-else-if="name === 'chevron-left'"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-full"
+        >
+            <path d="m15 19-7-7 7-7"></path>
+        </svg>
+
+        <svg
             v-else-if="name === 'chevron-right'"
             viewBox="0 0 24 24"
             fill="none"
@@ -372,6 +385,62 @@ const iconClass = computed(() => {
             <path d="M7 2v3"></path>
             <path d="M22 22l-5-10-5 10"></path>
             <path d="M14 18h6"></path>
+        </svg>
+
+        <svg
+            v-else-if="name === 'eye'"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-full"
+        >
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+
+        <svg
+            v-else-if="name === 'x' || name === 'close'"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-full"
+        >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+        </svg>
+
+        <svg
+            v-else-if="name === 'lock' || name === 'padlock'"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-full"
+        >
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+
+        <svg
+            v-else-if="name === 'clock' || name === 'pending'"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-full"
+        >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
 
         <svg v-else viewBox="0 0 24 24" fill="currentColor" class="size-full">
