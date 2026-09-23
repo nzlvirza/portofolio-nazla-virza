@@ -250,18 +250,23 @@ onUnmounted(() => {
                         </div>
 
                         <!-- Modal Footer -->
-                        <div class="flex items-center justify-between border-t border-white/[0.08] px-5 sm:px-6 py-3.5 bg-night-950/60 text-xs shrink-0">
-                            <div class="flex items-center gap-2 text-slate-400">
-                                <span>Badan Nasional Sertifikasi Profesi (BNSP)</span>
-                                <span v-if="activeImages.length > 1" class="font-mono text-accent-300">
-                                    • ({{ currentImageIndex + 1 }} / {{ activeImages.length }})
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-white/[0.08] px-4 sm:px-6 py-3 bg-night-950/80 text-xs shrink-0">
+                            <div class="flex items-center justify-between sm:justify-start gap-2 text-slate-400 min-w-0">
+                                <span class="truncate font-medium text-slate-300">
+                                    BNSP <span class="hidden sm:inline text-slate-400 font-normal">(Badan Nasional Sertifikasi Profesi)</span>
+                                </span>
+                                <span
+                                    v-if="activeImages.length > 1"
+                                    class="inline-flex items-center shrink-0 rounded-full border border-accent-400/30 bg-accent-500/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-accent-300 whitespace-nowrap"
+                                >
+                                    {{ currentImageIndex + 1 }} / {{ activeImages.length }}
                                 </span>
                             </div>
                             <a
                                 :href="currentImage"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="btn-secondary inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs text-slate-300 hover:text-accent-300 ml-auto"
+                                class="btn-secondary shrink-0 whitespace-nowrap inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 text-xs text-slate-300 hover:text-accent-300"
                             >
                                 <span>{{ currentLang === 'en' ? 'Open Original Image' : 'Buka Gambar Asli' }}</span>
                                 <AppIcon name="external" size="3.5" />
