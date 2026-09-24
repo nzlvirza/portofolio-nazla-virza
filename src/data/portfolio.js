@@ -351,7 +351,7 @@ export const portfolio = {
             {
                 role: 'Intern Quality Assurance & Data Entry',
                 company: 'PT. Komunitas Ide Sejahtera',
-                location: 'Jakarta Selatan, Indonesiaaa',
+                location: 'Jakarta Selatan, Indonesia',
                 period: 'Februari 2024 - Desember 2024',
                 description:
                     'Menguji aplikasi web dan mobile, mendokumentasikan hasil pengujian, mengolah data, dan memberikan layanan bantuan pengguna.',
