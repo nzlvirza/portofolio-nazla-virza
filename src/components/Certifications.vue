@@ -215,7 +215,11 @@ onUnmounted(() => {
                                         :key="currentImage"
                                         :src="currentImage"
                                         :alt="`Sertifikat ${selectedCert.name} (Halaman ${currentImageIndex + 1})`"
-                                        class="max-h-[68vh] w-auto max-w-full rounded-lg object-contain shadow-2xl border border-white/10 transition-all duration-300"
+                                        class="max-h-[68vh] w-auto max-w-full rounded-lg object-contain shadow-2xl border border-white/10 transition-all duration-300 select-none"
+                                        draggable="false"
+                                        @contextmenu.prevent
+                                        @dragstart.prevent
+                                        onmousedown="return false"
                                     />
                                 </Transition>
 
@@ -262,15 +266,10 @@ onUnmounted(() => {
                                     {{ currentImageIndex + 1 }} / {{ activeImages.length }}
                                 </span>
                             </div>
-                            <a
-                                :href="currentImage"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="btn-secondary shrink-0 whitespace-nowrap inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 text-xs text-slate-300 hover:text-accent-300"
-                            >
-                                <span>{{ currentLang === 'en' ? 'Open Original Image' : 'Buka Gambar Asli' }}</span>
-                                <AppIcon name="external" size="3.5" />
-                            </a>
+                            <span class="inline-flex items-center gap-1.5 text-xs text-slate-500 italic select-none">
+                                <AppIcon name="eye" size="3.5" />
+                                {{ currentLang === 'en' ? 'View only' : 'Hanya untuk dilihat' }}
+                            </span>
                         </div>
                     </div>
                 </div>
