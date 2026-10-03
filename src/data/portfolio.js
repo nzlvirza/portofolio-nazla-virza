@@ -123,23 +123,24 @@ export const portfolio = {
         ],
         projects: [
             {
-                title: 'Student Attendance System – QR Code',
+                title: 'Student Attendance System QR Code',
                 description:
                     'An Android-based student attendance application developed as an academic project to simplify attendance using QR Code technology.',
                 technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
                 features: [
                     'Developed an Android application for student attendance.',
-                    'Implemented QR Code-based attendance functionality.',
+                    'Implemented QR Code based attendance functionality.',
                     'Designed the application interface with a focus on usability and user experience.',
                     'Implemented user authentication and role-based access for students and lecturers.',
                     'Managed attendance and user data using a database.',
                     'Developed the project as part of an academic Information Systems project.',
                 ],
-                logo: '/images/projects/Absensi_QR_Code Mahasiswa.png',
+                logo: '/images/projects/Absensi_QR_Code_Mahasiswa.png',
                 image: null,
                 github: null,
                 demo: null,
             },
+
             {
                 title: 'Employee Payroll & Payslip System',
                 description:
@@ -155,6 +156,24 @@ export const portfolio = {
                     'Two-step payroll data saving with audit trail for salary components.',
                 ],
                 logo: '/images/projects/Sistem_Penggajian_Karyawan.png',
+                image: null,
+                github: null,
+                demo: null,
+            },
+            {
+                title: 'Employee Attendance System QR Code',
+                description:
+                    'An Android-based employee attendance application developed as an academic project to simplify attendance using QR Code technology.',
+                technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
+                features: [
+                    'Developed an Android application for employee attendance.',
+                    'Implemented QR Code based attendance functionality.',
+                    'Designed the application interface with a focus on usability and user experience.',
+                    'Implemented user authentication and role-based access for employees and HR managers.',
+                    'Managed attendance and user data using a database.',
+                    'Developed the project as part of an academic Information Systems project.',
+                ],
+                logo: '/images/projects/Absensi_Kantor_QR_Code.png',
                 image: null,
                 github: null,
                 demo: null,
@@ -322,7 +341,7 @@ export const portfolio = {
                     'Mengelola data presensi dan pengguna menggunakan database.',
                     'Mengembangkan proyek sebagai bagian dari tugas akademis Sistem Informasi.',
                 ],
-                logo: '/images/projects/Absensi_QR_Code Mahasiswa.png',
+                logo: '/images/projects/Absensi_QR_Code_Mahasiswa.png',
                 image: null,
                 github: null,
                 demo: null,
@@ -342,6 +361,24 @@ export const portfolio = {
                     'Penyimpanan data penggajian dua langkah dengan audit trail untuk komponen gaji.',
                 ],
                 logo: '/images/projects/Sistem_Penggajian_Karyawan.png',
+                image: null,
+                github: null,
+                demo: null,
+            },
+            {
+                title: 'Sistem Absensi QR Code Karyawan',
+                description:
+                    'Aplikasi presensi karyawan berbasis Android yang dikembangkan untuk mempermudah presensi karyawan menggunakan teknologi QR Code.',
+                technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'QR Code', 'Android'],
+                features: [
+                    'Mengembangkan aplikasi Android untuk presensi karyawan.',
+                    'Mengimplementasikan fitur presensi berbasis QR Code.',
+                    'Merancang antarmuka aplikasi dengan fokus pada kemudahan penggunaan dan UX.',
+                    'Mengimplementasikan otentikasi pengguna dan hak akses berbasis peran untuk karyawan dan manajer HR.',
+                    'Mengelola data presensi dan pengguna menggunakan database.',
+                    'Mengembangkan proyek sebagai bagian dari tugas akademis Sistem Informasi.',
+                ],
+                logo: '/images/projects/Absensi_Kantor_QR_Code.png',
                 image: null,
                 github: null,
                 demo: null,
