@@ -94,8 +94,8 @@ const reveal = (delay = 0) => ({
                         <div class="relative size-56 sm:size-72 md:size-80 lg:size-96 xl:size-[28rem]">
                             <span class="absolute inset-0 rounded-full border border-white/[0.05]"></span>
                             <span class="absolute inset-4 rounded-full border border-accent-500/20 sm:inset-6 md:inset-8 xl:inset-10"></span>
-                            <span class="animate-spin-slower absolute inset-8 rounded-full border border-dashed border-white/15 sm:inset-11 md:inset-14 xl:inset-16"></span>
-                            <div class="animate-float absolute inset-0 m-auto grid size-44 place-items-center overflow-hidden rounded-full border border-accent-400/30 bg-white/[0.04] shadow-glow backdrop-blur-md sm:size-56 md:size-68 lg:size-80 xl:size-96">
+                            <span class="absolute inset-8 rounded-full border border-dashed border-white/15 sm:inset-11 md:inset-14 xl:inset-16"></span>
+                            <div class="absolute inset-0 m-auto grid size-44 place-items-center overflow-hidden rounded-full border border-accent-400/30 bg-white/[0.04] shadow-glow backdrop-blur-md sm:size-56 md:size-68 lg:size-80 xl:size-96">
                                 <img
                                     v-if="!imgFailed"
                                     :src="`/images/profile.jpg`"
